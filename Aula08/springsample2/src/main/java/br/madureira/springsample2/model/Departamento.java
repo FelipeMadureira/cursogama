@@ -13,10 +13,10 @@ public class Departamento {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="idDepto")
+    @Column(name="iddepto")
     private int id;
 
-    @Column(name="nomeDep", length=50)
+    @Column(name="nomedep", length=50)
     private String nome;
 
     @Column(name="andar")
