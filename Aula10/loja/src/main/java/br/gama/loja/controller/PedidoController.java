@@ -35,7 +35,7 @@ public class PedidoController {
 
     //listar todos os pedidos
     @GetMapping("/pedidos")
-    public ResponseEntity<List<Pedido>> buscaPedidos() {
+    public ResponseEntity<List<Pedido>> listaTodos() {
         List<Pedido> pedidos = (List<Pedido>) dao.findAll();
 
         if (pedidos != null){
