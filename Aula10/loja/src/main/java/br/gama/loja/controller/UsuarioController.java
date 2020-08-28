@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.gama.loja.dao.UsuarioDAO;
+import br.gama.loja.model.Pedido;
 import br.gama.loja.model.Usuario;
 
 @RestController
@@ -59,20 +60,26 @@ public class UsuarioController {
 
     @PostMapping("/usuario/login")
     public ResponseEntity<Usuario> fazerLogin(@RequestBody Usuario user){
-        Usuario userFinded = dao.findByEmailAndSenha(user.getEmail(), user.getSenha());
+        //Usuario userFinded = dao.findByEmailAndSenha(user.getEmail(), user.getSenha());
+        Usuario userFinded = dao.findByEmailOrCpf(user.getEmail(), user.getCpf());
 
         if(userFinded != null){
-            userFinded.setSenha("*********");
-            return ResponseEntity.ok(userFinded);
+            if(userFinded.getSenha().equals(user.getSenha()) ){
+                userFinded.setSenha("*********");
+                return ResponseEntity.ok(userFinded);
+            } else{
+                return ResponseEntity.status(403).build();
+            }
         } else {
+            //return ResponseEntity.status(404).build();
             return ResponseEntity.status(403).build();
         }
 
     }
 
     @GetMapping("/usuario/pedidos/{id}")
-    public List<Usuario> getUsuariosPedidos(@PathVariable int id){
-        List<Usuario> lista = dao.buscaPorId(id);
+    public List<Pedido> getUsuariosPedidos(@PathVariable int id){
+        List<Pedido> lista = dao.buscaPendentesPorId(id);
 
         return lista;
     }

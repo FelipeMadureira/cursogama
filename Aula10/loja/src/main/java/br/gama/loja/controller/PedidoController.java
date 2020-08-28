@@ -1,5 +1,7 @@
 package br.gama.loja.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,12 +21,25 @@ public class PedidoController {
     @Autowired
     private PedidoDAO dao;
 
+    //buscar um pedido por número do pedido
     @GetMapping("/pedido/{numPedido}")
     public ResponseEntity <Pedido>  buscaPedido(@PathVariable int numPedido){
         Pedido pedido = dao.findById(numPedido).orElse(null);
 
         if (pedido != null){
             return ResponseEntity.ok(pedido);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    //listar todos os pedidos
+    @GetMapping("/pedidos")
+    public ResponseEntity<List<Pedido>> buscaPedidos() {
+        List<Pedido> pedidos = (List<Pedido>) dao.findAll();
+
+        if (pedidos != null){
+            return ResponseEntity.ok(pedidos);
         } else {
             return ResponseEntity.notFound().build();
         }
