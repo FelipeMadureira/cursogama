@@ -44,7 +44,7 @@ public class PedidoController {
             return ResponseEntity.notFound().build();
         }
     }
-    
+
     @PostMapping("/pedido/novo")
     public ResponseEntity<Pedido> novoUsuario(@RequestBody Pedido user){
         try {
