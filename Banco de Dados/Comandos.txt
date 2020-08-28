@@ -1,0 +1,84 @@
+* Criar banco
+create database nomebanco
+
+* Utilizar o banco
+use nomebanco
+
+* Criar tabela, exemplo de criação no banco itau table clientes
+create table itau.clientes (
+Codigo_Cliente int(6) not null auto_increment,           
+Nome_Cliente varchar(50) not null,
+CPF_Cliente varchar(11) not null,
+Email_Cliente varchar(80) not null,
+Idade_Cliente int(3) not null,
+Endereco_Cliente varchar(60) not null,
+Cep_Cliente char(8) not null,
+Data_Nascimento_Cliente date,
+Data_Cadastro_Cliente datetime,
+Telefone_Cliente char(11) not null,
+primary key (Codigo_Cliente)
+)
+
+* outro exemplo
+create table itau.produtos (
+codigo_produto int(6) not null auto_increment,
+nome_produto varchar(30) not null,
+quantidade_produtos int(4) not null,
+data_cadastro datetime,
+valor_unitario_produto decimal(8,2) not null,
+primary key (codigo_produto)
+)
+
+* Alterar tabela inserido campo de Endereco
+alter table itau.clientes add Endereco_Cliente varchar(80) not null;
+
+* Criar "backup" de uma tabela criando outra tabela
+create table itau.bck_clientes (select * from itau.clientes);
+
+* Alterar nome de campo na tabela
+alter table itau.clientes change nome_antigo nome_novo varchar(80);
+
+* Deletar tabela do database
+drop table itau.clientes;
+
+* Deletar o database
+drop database itau
+
+* Verificar estrutura da tabela
+describe clientes   **clientes é o nome da tabela
+
+* inserir dados na tabela (exemplo de uma linha)
+insert into itau.clientes 
+(Codigo_Cliente, Nome_CLiente, Idade_CLiente, Email_CLiente)
+values
+(1, "Felipe Madureira", 38, "fmadure@gmail.com"),
+(2, "Danielle Inês Madureira", 37, "dani@gmail.com"),
+(3, "Victoria Orsi Madureira", 6, "vic@gmail.com"),
+(4, "Leonardo Orsi Madureira", 11, "leo@gmail.com")
+
+* Selecionar informações na tabela
+select * from itau.clientes
+
+* Atualizar informações na tabela
+update itau.clientes set Endereco_Cliente="Atualizar Endereço" where Endereco_Cliente="";
+
+* Deletar linha na tabela
+delete from itau.clientes where Codigo_Cliente=1 and Idade_Cliente>40
+
+* Selecionar dados de duas tabelas, utilizando ligação de chaves
+select a.Cod_Cargo_Func, a.Matricula, a.Nome_Funcionario, b.Nome_Cargo, b.valor_Cargo, b.Cod_Cargo
+from itau.funcionarios a, itau.cargo b
+where a.Cod_Cargo_Func = b.Cod_Cargo;
+
+* inner join, mesmo resultado do select utilizando ligação de chaves
+select a.Cod_Cargo_Func, a.Matricula, a.Nome_Funcionario, b.Nome_Cargo, b.valor_Cargo, b.Cod_Cargo
+from itau.cargo b inner join itau.funcionarios a
+on(a.Cod_Cargo_Func = b.Cod_Cargo);
+
+* left join, traz todos os dados da tabela esquerda, o que não tiver correspondente na direita ficará com linha em nulo
+select a.Cod_Cargo_Func, a.Matricula, a.Nome_Funcionario, b.Nome_Cargo, b.valor_Cargo, b.Cod_Cargo
+from itau.cargo b left join itau.funcionarios a
+on(a.Cod_Cargo_Func = b.Cod_Cargo);
+
+* truncate delete todos os dados da tabela, independente de chave estrangeira
+truncate itau.folha_pagamento;
