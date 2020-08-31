@@ -1,0 +1,16 @@
+/*Criando arquivo css em arquivo de estilos*/
+
+p{
+    color: red;
+    font-size: 18px;
+    width: 200px;
+}
+        
+body{
+    background-color: yellow;
+}
+
+#titulo{
+    color: rgb(8, 88, 8);
+    font-size: 26px;
+}
