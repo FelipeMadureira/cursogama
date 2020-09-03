@@ -10,12 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="pedido")
+@Table(name = "pedido")
 public class Pedido {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="num_pedido")
@@ -23,8 +24,9 @@ public class Pedido {
 
     @Column(name="status")
     private char status;
-
+    
     @Column(name="data_pedido")
+    //@JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate data;
 
     @ManyToOne

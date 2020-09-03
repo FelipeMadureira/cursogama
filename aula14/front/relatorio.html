@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/estilo.css">
+
+    <script src="/js/relatorio.js"></script>
+</head>
+
+<body onload="validaLogin()">
+
+    <div class="container h-100">
+        <div class="row justify-content-between">
+            <div id="foto" class="col-8">
+                <div class="media">
+                    <div id="imgUser"></div>
+                    <h5 class="mt-0">
+                        <br>
+                        <p id="user"></p>
+                    </h5>
+                </div>
+            </div>
+            <div class="col-4 text-right">
+                <button class="btn btn-primary" onclick="logout()">logout</button>
+            </div>
+        </div>
+
+        <div class="row" id="filtros">
+            <div class="col-6">
+                <select id="sel_status">
+                    <option value='A'> Aprovado </option>
+                    <option value='P'> Pendente </option>
+                    <option value='C'> Cancelado </option>
+                </select>
+                <button class="btn btn-primary" onclick="buscarPorStatus()">Por Status</button>
+            </div>
+            <div class="col-6">
+                <input type="date" id="dataAgendada">
+                <button class="btn btn-primary" onclick="buscarPorData()">Por Data</button>
+            </div>
+        </div>
+
+        <div class="row" id="tableResposta">
+        </div>
+
+    </div>
+
+</body>
+
+</html>

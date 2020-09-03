@@ -14,29 +14,33 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="usuario")
+@Table(name ="usuario")
 public class Usuario {
 
-    @Id //chave primaria, não tem relação com o nome do campo na tabela
+    @Id //chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto-numeração
     @Column(name="id")
     private int id;
 
-    @Column(name="nome", length=100, nullable=false)
+    @Column(name="nome", length = 100, nullable = false)
     private String nome;
 
-    @Column(name="email", length=100, nullable=false, unique=true)
+    @Column(name="email", length = 100, nullable = false, unique = true)
     private String email;
 
-    @Column(name="cpf", length=20, nullable=false, unique=true)
+    @Column(name="cpf", length = 20, nullable = false, unique = true)
     private String cpf;
 
-    @Column(name="senha", length=20, nullable=false)
+    @Column(name="senha", length = 20, nullable = false)
     private String senha;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "solicitante") //apagando usuário também apagará todos os pedidos
+    @Column(name = "linkfoto")
+    private String linkFoto;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "solicitante")
     @JsonIgnoreProperties("solicitante")
     private List<Pedido> pedidos;
+
 
     public int getId() {
         return id;
@@ -86,4 +90,13 @@ public class Usuario {
         this.pedidos = pedidos;
     }
 
+    public String getLinkFoto() {
+        return linkFoto;
+    }
+
+    public void setLinkFoto(String linkFoto) {
+        this.linkFoto = linkFoto;
+    }
+
+    
 }
