@@ -26,7 +26,7 @@ public class Pedido {
     private char status;
     
     @Column(name="data_pedido")
-    //@JsonFormat(pattern="dd/MM/yyyy")
+    @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate data;
 
     @ManyToOne

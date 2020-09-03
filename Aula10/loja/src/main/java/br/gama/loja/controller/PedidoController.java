@@ -65,11 +65,11 @@ public class PedidoController {
 
     }
 
-        //listar todos os pedidos por data
-        @GetMapping("/pedidos/data")
-        public List<Pedido> buscaPorData(@RequestParam(name="dataagendamento") String dataAgendamento){
-            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate data = LocalDate.parse(dataAgendamento, fmt);
-            return dao.findAllByData(data);
-        }
+    //listar todos os pedidos por data
+    @GetMapping("/pedidos/data")
+    public List<Pedido> buscaPorData(@RequestParam(name="dataagendamento") String dataAgendamento){
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate data = LocalDate.parse(dataAgendamento, fmt);
+        return dao.findAllByData(data);
+    }
 }
