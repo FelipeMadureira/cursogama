@@ -1,0 +1,29 @@
+body, html{
+    height: 100%;
+    background-color: rgb(224, 224, 224);
+    
+}
+
+.form-control{
+    margin-bottom: 15px;
+}
+
+#msgErro{
+    color: red;
+}
+
+img{
+    height: 80px;
+    width: 70px;
+}
+
+#filtros{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.jumbotron{
+    background-color: rgb(218, 218, 218);
+    border-style:solid;
+    border-color: rgb(184, 184, 184);
+}

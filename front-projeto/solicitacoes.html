@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitações</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/estilo.css">
+
+    <script src="/js/solicitacoes.js"></script>
+
+</head>
+<body>
+    <div class="container h-100 d-flex"> <!-- ocupar toda a página, centralizada na vertical -->
+        <div class="row w-100 align-items-center"> <!-- ocupa toda a largula centralizando o conteúdo -->
+            <div class="col-8 mx-auto"> <!-- uma única coluna ocupando 8 dos 12 espaços, centralizada  -->
+
+                <div class="jumbotron">
+                    <form>
+                        Técnico<input class="form-control" type="text" title="Técnico" id="txtnome">
+                        Operadora<input class="form-control" type="text" title="Operadora" id="txtoperadora">
+                        Celular / Whatsapp<input class="form-control" type="text" title="Celular / Whatsapp" id="txtcelular">
+                        Documento<input class="form-control" type="text" title="Documento" id="txtdocumento">
+                        PDV<input class="form-control" type="text" title="PDV" id="txtpdv">
+                        Data<input class="form-control" type="text" title="Data" id="txtdata">
+                        Hora<input class="form-control" type="text" title="Hora" id="txthora">
+
+                        <div class="col text-center">
+                            <button class="btn btn-info" onclick="enviarSolicitacao(event)"> Enviar Solicitação</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
