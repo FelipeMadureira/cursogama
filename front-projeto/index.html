@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <link rel="stylesheet" href="/css/estilo.css">
 
     <script src="/js/login.js"></script>
 
 </head>
-<body>
-    <div class="container h-100 d-flex"> <!-- ocupar toda a página, centralizada na vertical -->
-        <div class="row w-100 align-items-center"> <!-- ocupa toda a largula centralizando o conteúdo -->
-            <div class="col-8 mx-auto"> <!-- uma única coluna ocupando 8 dos 12 espaços, centralizada  -->
-                
-                <div class="jumbotron">
-                    <form>
-                        &nbsp;Usuário
-                        <input class="form-control" type="text" title="User Name" id="txtUsuario" placeholder="Funcional / RACF">
-                        &nbsp;Senha
-                        <input class="form-control" type="password" title="Senha" id="txtSenha" placeholder="Senha">
 
-                        <div class="row"> 
+<body>
+    <div class="container h-100 d-flex">
+        <!-- ocupar toda a página, centralizada na vertical -->
+        <div class="row w-100 align-items-center">
+            <!-- ocupa toda a largula centralizando o conteúdo -->
+            <div class="col-8 mx-auto">
+                <!-- uma única coluna ocupando 8 dos 12 espaços, centralizada  -->
+                <h5 class="p-3 mb-2 bgLar text-white rounded font-weight-bold">Sistema Agendamento</h5>
+                <div class="jumbotron border border-secondary rounded">
+                    <form>
+                        <h5 class="d-inline-block mb-2 text-secondary"> Usuário</h5>
+                        <input class="form-control" type="text" title="User Name" id="txtUsuario" required autofocus
+                            placeholder="Funcional / RACF">
+                        <h5 class="d-inline-block mb-2 text-secondary"> Senha</h5>
+                        <input class="form-control" type="password" title="Senha" id="txtSenha" required
+                            placeholder="Senha">
+
+                        <div class="row p-2 mb-2">
                             <div class="col">
                                 <div class="text-center" id="msgErro"></div>
                             </div>
                         </div>
-                        <div class="col text-center">
-                            <button class="btn btn-info" onclick="autenticar(event)"> Login</button>
-                        </div>
+                        <button class="btn btn-lg btn-primary btn-block" onclick="autenticar(event)">Login</button>
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
