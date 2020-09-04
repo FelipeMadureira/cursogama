@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitações</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/estilo.css">
+
+    <script src="/js/solicitacoes.js"></script>
+
+</head>
+
+<body>
+    <div class="navbar navbar-dark bg-dark  mb-1">
+        <nav class="col-12 w-100 navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <h6 class="navbar-brand">Sistema Agendamento</h6>
+            </div>
+            <div class="col-md-8 col-sm-3 col-xs-3">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item  mb-1">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item mb-1">
+                        <a class="nav-link" href="#">Lista de Agendamento</a>
+                    </li>
+                    <li class="nav-item mb-1">
+                        <a class="nav-link" href="#">Solicitações</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-1 col-sm-3 col-xs-3 ">
+                <button class="btn btn-primary" onclick="logout()">logout</button>
+            </div>
+        </nav>
+    </div>
+    <div class="container h100 d-flex">  <!-- ocupar toda a página, centralizada na vertical -->
+        <div class="row w-100 align-items-center">  <!-- ocupa toda a largula centralizando o conteúdo -->
+            <div class="col-12 row" id="filtros">
+                <div class="col-6">
+                    <select id="sel_status">
+                        <option value='A'> Aprovado </option>
+                        <option value='P'> Pendente </option>
+                        <option value='C'> Cancelado </option>
+                    </select>
+                    <button class="btn btn-primary" onclick="buscarPorStatus()">Por Status</button>
+                </div>
+                <div class="col-6">
+                    <input type="date" id="dataPedido">
+                    <button class="btn btn-primary" onclick="buscarPorData()">Por Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
